@@ -7,7 +7,7 @@ export const sequelize = new Sequelize(
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // Use true if SSL certificates are fully validated
+        rejectUnauthorized: true, // Use true if SSL certificates are fully validated
       },
     },
   }
