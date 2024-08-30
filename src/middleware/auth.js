@@ -14,7 +14,7 @@ export const jwtCheck = (userId, res) => {
   res.cookie("auth_token", token, {
     httpOnly: true,
     secure: true,
-    maxAge: 86400000,
+    expires: new Date(Date.now() + 86400000),
   });
 };
 
@@ -60,6 +60,8 @@ export const verifyToken = (
  */
 export const verifyLogout = (req, res) => {
   res.cookie("auth_token", "", {
+    httpOnly: true,
+    secure: true,
     expires: new Date(0),
   });
   res.send();
